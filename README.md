@@ -12,7 +12,7 @@ Usage
 or linked (this is how I use it)
 
     docker run -d --name spamassassin dinkel/spamassassin
-    docker run -d --link spamassassin:spamassassind application-with-spamc-or-something
+    docker run -d --link spamassassin:spamassassin application-with-spamc-or-something
 
 Configuration (environment variables)
 -------------------------------------
