@@ -1,9 +1,9 @@
-FROM debian:wheezy
+FROM debian:jessie
 
 MAINTAINER Christian Luginbühl <dinkel@pimprecords.com>
 
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y \
+    DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
         libmail-dkim-perl \
         libnet-ident-perl \
         pyzor \
