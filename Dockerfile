@@ -2,13 +2,15 @@ FROM debian:jessie
 
 MAINTAINER Christian Luginbühl <dinkel@pimprecords.com>
 
+ENV SPAMASSASSIN_VERSION 3.4.0
+
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
         libmail-dkim-perl \
         libnet-ident-perl \
         pyzor \
         razor \
-        spamassassin && \
+        spamassassin=${SPAMASSASSIN_VERSION}* && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
