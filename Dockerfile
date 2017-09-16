@@ -1,8 +1,8 @@
-FROM debian:jessie
+FROM debian:stretch
 
 MAINTAINER Christian Luginbühl <dinkel@pimprecords.com>
 
-ENV SPAMASSASSIN_VERSION 3.4.0
+ENV SPAMASSASSIN_VERSION 3.4.1
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
