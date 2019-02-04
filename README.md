@@ -7,11 +7,11 @@ constantly updates its ruleset.
 Usage
 -----
 
-    docker run -d -p 783:783 dinkel/spamassassin
+    docker run -d -p 783:783 bluelotussoftware/spamassassin
 
 or linked (this is how I use it)
 
-    docker run -d --name spamassassin dinkel/spamassassin
+    docker run -d --name spamassassin bluelotussoftware/spamassassin
     docker run -d --link spamassassin:spamassassin application-with-spamc-or-something
 
 Configuration (environment variables)
