@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:buster-slim
 
 # MAINTAINER Christian Luginbühl <dinkel@pimprecords.com>
 MAINTAINER John Yeary <jyeary@bluelotussoftware.com>
@@ -8,7 +8,8 @@ ENV SPAMASSASSIN_VERSION 3.4.2
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
         gpg \
-	libio-socket-ip-perl \
+        gpg-agent \
+	      libio-socket-ip-perl \
         libmail-dkim-perl \
         libnet-ident-perl \
         libsocket-getaddrinfo-perl \
