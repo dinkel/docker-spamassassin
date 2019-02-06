@@ -1,13 +1,15 @@
-FROM debian:stretch
+FROM debian:buster-slim
 
-MAINTAINER Christian Luginbühl <dinkel@pimprecords.com>
+# MAINTAINER Christian Luginbühl <dinkel@pimprecords.com>
+MAINTAINER John Yeary <jyeary@bluelotussoftware.com>
 
-ENV SPAMASSASSIN_VERSION 3.4.1
+ENV SPAMASSASSIN_VERSION 3.4.2
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
         gpg \
-	libio-socket-ip-perl \
+        gpg-agent \
+	      libio-socket-ip-perl \
         libmail-dkim-perl \
         libnet-ident-perl \
         libsocket-getaddrinfo-perl \
@@ -28,11 +30,7 @@ RUN mkdir -p /etc/spamassassin/sa-update-keys && \
 
 RUN sed -i 's/^logfile = .*$/logfile = \/dev\/stderr/g' /etc/razor/razor-agent.conf
 
-COPY spamd.sh /
-
-COPY rule-update.sh /
-
-COPY run.sh /
+COPY spamd.sh rule-update.sh run.sh /
 
 EXPOSE 783
 
